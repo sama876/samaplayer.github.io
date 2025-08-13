@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LoudPlayer (Web)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>🔊 LoudPlayer (Web)</h1></header>
+
+  <section class="picker">
+    <input id="fileInput" type="file" accept="audio/*" multiple />
+    <small>Tip: select multiple files to build a playlist.</small>
+  </section>
+
+  <section class="now">
+    <div class="meta">
+      <div id="title">No track loaded</div>
+      <div id="time">00:00 / 00:00</div>
+    </div>
+
+    <div class="transport">
+      <button id="prevBtn" title="Previous">⏮</button>
+      <button id="playBtn" title="Play/Pause">▶</button>
+      <button id="nextBtn" title="Next">⏭</button>
+      <input id="seek" type="range" min="0" max="1000" value="0" />
+    </div>
+  </section>
+
+  <section class="boost">
+    <label>Boost (100%–500%)
+      <input id="boost" type="range" min="1" max="5" step="0.05" value="1" />
+      <span id="boostVal">1.00×</span>
+    </label>
+    <label><input id="limiter" type="checkbox" checked /> Limiter (recommended)</label>
+  </section>
+
+  <section class="eq">
+    <h3>EQ</h3>
+    <div class="eq-row">
+      <label>Bass
+        <input id="bass" type="range" min="-12" max="12" step="0.5" value="0" />
+        <span id="bassVal">0 dB</span>
+      </label>
+      <label>Mids
+        <input id="mid" type="range" min="-12" max="12" step="0.5" value="0" />
+        <span id="midVal">0 dB</span>
+      </label>
+      <label>Treble
+        <input id="treble" type="range" min="-12" max="12" step="0.5" value="0" />
+        <span id="trebleVal">0 dB</span>
+      </label>
+      <button id="resetEq">Reset EQ</button>
+    </div>
+  </section>
+
+  <section class="viz">
+    <canvas id="canvas" width="600" height="120"></canvas>
+  </section>
+
+  <section class="list">
+    <ol id="playlist"></ol>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
